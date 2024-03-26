@@ -21,6 +21,7 @@ const app = new App({
 export async function POST(request: Request) {
   // リクエストハンドラを使ってBoltアプリを起動
   try {
+    console.log(request);
     const json = await request.json();
     // await updateItem();
     // const result =
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
       },
-      result: JSON.stringify(json),
+      result: "verify",
     });
   } catch (e: any) {
     return NextResponse.json({ status: "error", data: e.message });
