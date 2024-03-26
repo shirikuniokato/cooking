@@ -22,10 +22,17 @@ export async function POST(request: Request) {
   // リクエストハンドラを使ってBoltアプリを起動
   try {
     await app.start();
+    const json = await request.json();
     // await updateItem();
     // const result =
     //   await sql`SELECT item_id, item_type, content, order_id, user_id, false AS is_deleted FROM t_item t WHERE user_id = ORDER BY order_id ASC`;
-    return NextResponse.json({ status: "ok" });
+    return NextResponse.json({
+      status: "200",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      result: json,
+    });
   } catch (e: any) {
     return NextResponse.json({ status: "error", data: e.message });
   }
