@@ -8,20 +8,19 @@ const app = new App({
 });
 
 // Slackイベントのリスナーを登録
-app.command("/cook-add", async ({ command, ack, respond }) => {
-  await ack();
-  await respond("Hello world!");
-});
+// app.command("/cook-add", async ({ command, ack, respond }) => {
+//   await ack();
+//   await respond("Hello world!");
+// });
 
-app.message("hello", async ({ message, say }) => {
-  // イベントがトリガーされたチャンネルに say() でメッセージを送信します
-  await say(`Hello world!`);
-});
+// app.message("hello", async ({ message, say }) => {
+//   // イベントがトリガーされたチャンネルに say() でメッセージを送信します
+//   await say(`Hello world!`);
+// });
 
 export async function POST(request: Request) {
   // リクエストハンドラを使ってBoltアプリを起動
   try {
-    await app.start();
     const json = await request.json();
     // await updateItem();
     // const result =
