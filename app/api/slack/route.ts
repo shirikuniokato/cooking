@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
       },
-      result: json,
+      result: JSON.stringify(json),
     });
   } catch (e: any) {
     return NextResponse.json({ status: "error", data: e.message });
