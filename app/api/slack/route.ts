@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   // リクエストハンドラを使ってBoltアプリを起動
   try {
     console.log(request);
-    const json = await request.json();
+    // const json = await request.json();
     // await updateItem();
     // const result =
     //   await sql`SELECT item_id, item_type, content, order_id, user_id, false AS is_deleted FROM t_item t WHERE user_id = ORDER BY order_id ASC`;
