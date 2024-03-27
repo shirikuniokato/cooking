@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { COOK } from "@/app/lib/type";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const getTypeText = (type: number): string => {
   switch (type) {
@@ -80,6 +80,8 @@ export default function Cooking(param: { cookList: COOKLIST }) {
   const [searchName, setSearchName] = useState<string>("");
   const [searchType, setSearchType] = useState<number>(0);
 
+  const resultAreaRef = useRef<HTMLDivElement>(null);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchName(event.target.value);
   };
@@ -94,12 +96,15 @@ export default function Cooking(param: { cookList: COOKLIST }) {
     );
 
     if (!res.ok) {
-      const data = await res.json();
       setList({ doneList: [], doingList: [] });
     }
 
     const data = await res.json();
     setList(data);
+
+    if (resultAreaRef.current) {
+      resultAreaRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -160,7 +165,7 @@ export default function Cooking(param: { cookList: COOKLIST }) {
         </div>
       </section>
       {/* 料理一覧 */}
-      <section className="good_sec c-anim-up move">
+      <section className="good_sec c-anim-up move" ref={resultAreaRef}>
         <h3>LIST</h3>
         <div className="inner custom2:custom-goods-inner-div">
           <div className="bg">
