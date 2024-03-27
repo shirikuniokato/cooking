@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import { headers } from "next/headers";
 import { config } from "@/app/lib/config";
 
@@ -7,7 +7,7 @@ async function getData(host: string, id: number) {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+    // throw new Error("Failed to fetch data");
   }
 
   return res.json();
@@ -21,8 +21,34 @@ export default async function Page({
   const host = headers().get("host");
   const data = await getData(host!, id);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      test {id}
-    </main>
+    <>
+      <section id="ancr_ticket" className="tick_sec c-anim-up move mt-[100px]">
+        <div className="container2">
+          <h3>DETAILS</h3>
+          <p className="txt_price">{data.name}</p>
+          <ul>
+            <li>
+              <dl>
+                <dt>{data.is_cook ? "作成済み" : "未作成"}</dt>
+                <dd className="soldout">
+                  <p className="details">■登録日：{data.created_at}</p>
+                  <p className="details">
+                    ■参考サイト：<Link href={data.link}>こちら</Link>
+                  </p>
+                  <p className="details">■メモ：{data.memo}</p>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+
+          <figure className="mei01 c-anim-up delay2 move">
+            <img
+              src="/img_naganomei01.png"
+              alt="こんな永野芽郁、見たことない。"
+            />
+          </figure>
+        </div>
+      </section>
+    </>
   );
 }

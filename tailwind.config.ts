@@ -16,6 +16,7 @@ const config: Config = {
       screens: {
         custom: { max: "640px" },
         custom2: { max: "899px" },
+        custom3: { min: "900px" },
       },
     },
   },
@@ -37,6 +38,9 @@ const config: Config = {
           fontSize: "28px!important",
           padding: "40px 0 15px 0!important",
         },
+        ".custom-tick_sec-br": {
+          display: "none !important",
+        }
       };
       addUtilities(newUtilities, ["responsive"]);
     },

@@ -509,6 +509,117 @@ main .good_sec::after {
   left: 0;
 }
 
+/* 料理詳細 */
+main .tick_sec {
+  background-color: #515151;
+  color: #fff;
+  padding: 48px 0 60px;
+}
+
+main .tick_sec .container2 {
+  text-align: center;
+  max-width: 780px;
+  position: relative;
+}
+
+main .tick_sec .container2 h3 {
+  font-size: 15px;
+  font-family: "Barlow";
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  border-bottom: 3px solid #fff;
+  margin-bottom: 24px;
+  padding: 0 10px 3px;
+  display: inline-block;
+}
+
+main .tick_sec .container2 .txt_price {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+main .tick_sec .container2 ul {
+  position: relative;
+  z-index: 1;
+}
+
+main .tick_sec .container2 ul li:last-child {
+  margin-bottom: 0;
+}
+
+main .tick_sec .container2 ul li {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+main .tick_sec .container2 ul li dl {
+  background-color: #fff;
+  padding: 18px;
+  margin-inline: auto;
+  width: 90%;
+}
+
+main .tick_sec .container2 ul li dl dt {
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  height: 32px;
+  line-height: 31px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+main .tick_sec .container2 ul li dl dd.soldout {
+  color: #cc0000;
+  font-size: 30px;
+  line-height: 1.2;
+  padding: 10px 0;
+}
+
+main .tick_sec .container2 .txt_atte_ticket {
+  padding: 24px 18px 0;
+  padding-top: 24px;
+  padding-left: 18px;
+  padding-right: clamp(18px, 30vw, 60px);
+}
+
+main .tick_sec .container2 .txt_atte_ticket span {
+  font-size: 12px;
+  margin-bottom: 3px;
+  margin-left: 12px;
+  text-indent: -12px;
+  display: block;
+  text-align: justify;
+}
+
+main .tick_sec .container2 .mei01 {
+  position: absolute;
+  top: -93px;
+  left: 18px;
+  width: 84px;
+}
+
+main .tick_sec .container2 dl dd .details {
+  color: black;
+  font-size: 12px;
+  text-align: left;
+  text-indent: -1em;
+  margin: 0 0 6px 1em;
+}
+
+.delay2 {
+  -moz-transition-delay: 600ms;
+  -webkit-transition-delay: 600ms;
+  -o-transition-delay: 600ms;
+  -ms-transition-delay: 600ms;
+}
+
 /* footer */
 footer {
   background: #000;
