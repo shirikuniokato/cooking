@@ -620,6 +620,13 @@ main .tick_sec .container2 dl dd .details {
   -ms-transition-delay: 600ms;
 }
 
+main .tick_sec .container2 dl dd .link {
+  border-bottom: 1px solid #000;
+  margin-bottom: 1px;
+  /* display: inline-block; */
+  transition: 0.3s;
+}
+
 /* footer */
 footer {
   background: #000;

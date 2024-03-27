@@ -33,7 +33,10 @@ export default async function Page({
                 <dd className="soldout">
                   <p className="details">■登録日：{data.created_at}</p>
                   <p className="details">
-                    ■参考サイト：<Link href={data.link}>こちら</Link>
+                    ■参考サイト：
+                    <Link className="link" href={data.link}>
+                      こちら
+                    </Link>
                   </p>
                   <p className="details">■メモ：{data.memo}</p>
                 </dd>
