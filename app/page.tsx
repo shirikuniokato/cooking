@@ -1,12 +1,10 @@
 import { headers } from "next/headers";
 import { config } from "@/app/lib/config";
-import Image from "next/image";
 import Link from "next/link";
-import { SubmitButton } from "./components/submit-button";
 import Cooking from "./components/root/cooking";
 
-async function getData(host: string, id: number) {
-  const res = await fetch(`${config.apiPrefix}${host}/api/search?name=&type=0`);
+async function getData(host: string) {
+  const res = await fetch(`${config.apiPrefix}${host}/api/search`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -18,8 +16,7 @@ async function getData(host: string, id: number) {
 
 export default async function Page() {
   const host = headers().get("host");
-  const data = await getData(host!, 0);
-  console.log(data);
+  const data = await getData(host!);
 
   return (
     <>

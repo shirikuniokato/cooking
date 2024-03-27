@@ -1,7 +1,82 @@
 "use client";
+import Link from "next/link";
+import { COOK } from "@/app/lib/type";
 import { useState } from "react";
-export default function Cooking(param: { cookList: any[] }) {
-  const [list, setList] = useState<any[]>(param.cookList);
+
+const getTypeText = (type: number): string => {
+  switch (type) {
+    case 0:
+      return "全て";
+    case 1:
+      return "作成済みのみ表示";
+    case 2:
+      return "未作成のみ表示";
+    default:
+      return "全て";
+  }
+};
+
+const getNameText = (name: string): string => {
+  if (name == "") {
+    return "全ての料理";
+  } else {
+    return name;
+  }
+};
+
+const isShowType = (selectType: number, showType: number): boolean => {
+  // 検索条件で全てを選択している場合
+  if (selectType === 0) return true;
+
+  // 表示領域と検索条件の作成状況が一致する場合
+  return selectType === showType;
+};
+
+const NotFound = () => {
+  return (
+    <p className="p1">
+      お探しの条件にマッチする料理は見つかりませんでした。
+      <br />
+      別のキーワードで再検索するか修行させたい料理を登録してみてください。
+    </p>
+  );
+};
+
+const formatYmd = (createDate: string): string => {
+  const date = new Date(createDate);
+  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+};
+
+const CookList = (param: { targetList: COOK[] }) => {
+  return (
+    <div className="flex flex-wrap items-center justify-center">
+      {param.targetList.map((cook) => {
+        return (
+          <div
+            key={cook.id}
+            className="m-2 flex-basis[45%] sm:max-w-full lg:max-w-1/2"
+          >
+            <div className="card">
+              <Link href={`/item/${cook.id}`} target="_blank">
+                <p className="search_result_name">{cook.name}</p>
+                <p className="search_result_date">
+                  登録日：{formatYmd(cook.created_at.toString())}
+                </p>
+              </Link>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+type COOKLIST = {
+  doneList: COOK[];
+  doingList: COOK[];
+};
+export default function Cooking(param: { cookList: COOKLIST }) {
+  const [list, setList] = useState<COOKLIST>(param.cookList);
   const [searchName, setSearchName] = useState<string>("");
   const [searchType, setSearchType] = useState<number>(0);
 
@@ -9,7 +84,7 @@ export default function Cooking(param: { cookList: any[] }) {
     setSearchName(event.target.value);
   };
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchType(parseInt(event.target.value));
   };
 
@@ -17,12 +92,14 @@ export default function Cooking(param: { cookList: any[] }) {
     const res = await fetch(
       `/api/search?name=${searchName}&type=${searchType}`
     );
-    console.log(res.body);
+
     if (!res.ok) {
-      setList([]);
-    } else {
-      setList([]);
+      const data = await res.json();
+      setList({ doneList: [], doingList: [] });
     }
+
+    const data = await res.json();
+    setList(data);
   };
 
   return (
@@ -41,7 +118,7 @@ export default function Cooking(param: { cookList: any[] }) {
                 検索条件を指定することで「作成済みの料理 or
                 未作成の料理」のいずれかを絞り込むことができます。
               </span>
-              <div className="flex flex-col mt-8">
+              <div className="flex flex-col mt-8 gap-2">
                 <input
                   type="text"
                   placeholder="料理名"
@@ -49,9 +126,26 @@ export default function Cooking(param: { cookList: any[] }) {
                   name="name"
                   value={searchName}
                   onChange={handleInputChange}
+                  className="px-2 text-black h-10 focus:outline-none bg-white/70"
                 />
 
-                <button onClick={handleSearchButtonClick}>検索</button>
+                <select
+                  id="countries"
+                  className="px-2 text-black h-10 focus:outline-none bg-white/70"
+                  value={searchType}
+                  onChange={handleRadioChange}
+                >
+                  <option value={0}>全て（作成状態を問わない）</option>
+                  <option value={1}>作成済み</option>
+                  <option value={2}>未作成</option>
+                </select>
+
+                <button
+                  className="mt-4 py-2 bg-black text-white rounded-full"
+                  onClick={handleSearchButtonClick}
+                >
+                  検索
+                </button>
               </div>
             </li>
             <li>
@@ -70,20 +164,42 @@ export default function Cooking(param: { cookList: any[] }) {
         <h3>LIST</h3>
         <div className="inner custom2:custom-goods-inner-div">
           <div className="bg">
-            <h4 className="custom2:custom-goods-inner">全ての料理</h4>
-            <p className="p1">作成済み、未作成いずれも表示</p>
+            <h4 className="custom2:custom-goods-inner">
+              {getNameText(searchName)}
+            </h4>
+            <p className="p1">{getTypeText(searchType)}</p>
 
-            <h5>作成済み</h5>
+            {isShowType(searchType, 1) ? (
+              <>
+                <h5>作成済み</h5>
 
-            <div className="fig1">
-              <img src="/fig1.jpg" alt="販売商品" />
-            </div>
+                <div className="fig1">
+                  {list.doneList.length === 0 ? (
+                    <NotFound />
+                  ) : (
+                    <CookList targetList={list.doneList} />
+                  )}
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
 
-            <h5>未作成</h5>
+            {isShowType(searchType, 2) ? (
+              <>
+                <h5>未作成</h5>
 
-            <div className="fig1">
-              <img src="/fig1.jpg" alt="販売商品" />
-            </div>
+                <div className="fig1">
+                  {list.doingList.length === 0 ? (
+                    <NotFound />
+                  ) : (
+                    <CookList targetList={list.doingList} />
+                  )}
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </section>

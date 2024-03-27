@@ -474,6 +474,36 @@ main .good_sec p {
   z-index: 1;
 }
 
+main .good_sec .search_result_name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+main .good_sec .search_result_date {
+  font-size: 10px;
+  font-weight: 600;
+  color: #000000ae;
+  text-align: left;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+main .good_sec .card {
+  min-width: 200px;
+  border: 1px solid #a0a0a0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Tailwind の shadow-lg に相当 */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 main .good_sec .inner h5 {
   background-color: #000;
   color: #fff;
@@ -486,7 +516,7 @@ main .good_sec .inner h5 {
 }
 
 main .good_sec .inner div.fig1 {
-  padding: 0 0 60px 0;
+  padding: 0 0 30px 0;
 }
 
 main .good_sec p {
