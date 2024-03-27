@@ -13,8 +13,33 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      screens: {
+        custom: { max: "640px" },
+        custom2: { max: "899px" },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities, theme }: { addUtilities: any; theme: any }) {
+      const newUtilities = {
+        ".custom-ul-display": {
+          display: "block!important",
+          transition: "0.3s!important",
+        },
+        ".custom-ul-figure": {
+          right: "-70% !important",
+        },
+        ".custom-goods-inner-div": {
+          paddingLeft: "20px!important",
+          paddingRight: "20px!important",
+        },
+        ".custom-goods-inner": {
+          fontSize: "28px!important",
+          padding: "40px 0 15px 0!important",
+        },
+      };
+      addUtilities(newUtilities, ["responsive"]);
+    },
+  ],
 };
 export default config;

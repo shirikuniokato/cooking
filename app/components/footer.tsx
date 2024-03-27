@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="footer_inner c-anim-up move">
         <dl className="delay1">
-          <dt>永野芽郁 公式SNS</dt>
+          <dt>西岡 公式SNS</dt>
           <dd>
             <ul>
               <li>
@@ -25,30 +25,7 @@ export default function Footer() {
           </dd>
         </dl>
         <dl className="delay1">
-          <dt>永野芽郁マネージャー 公式SNS</dt>
-          <dd>
-            <ul>
-              <li>
-                <a href="https://twitter.com/meinagano_staff" target="_blank">
-                  <img src="/icon_x.svg" alt="永野芽郁マネージャー 公式X" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/naganomei_staff/"
-                  target="_blank"
-                >
-                  <img
-                    src="/icon_insta.svg"
-                    alt="永野芽郁マネージャー 公式Instagram"
-                  />
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-        <dl className="delay1">
-          <dt>非公開 公式SNS</dt>
+          <dt>西岡の花婿修行 公式SNS</dt>
           <dd>
             <ul>
               <li>

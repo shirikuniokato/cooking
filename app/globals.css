@@ -115,10 +115,10 @@ video {
 h3 {
   display: block;
   font-size: 1.17em;
-  /* margin-block-start: 1em; */
-  /* margin-block-end: 1em; */
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
+  /* margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; */
   font-weight: bold;
 }
 
@@ -200,18 +200,18 @@ main .news_sec::after {
   left: 0;
 }
 
-main .news_sec .container {
+main .news_sec .container2 {
   padding: 0 10%;
   max-width: 780px;
   text-align: center;
 }
 
-.container {
+.container2 {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.container {
+.container2 {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
@@ -220,7 +220,7 @@ main .news_sec .container {
   box-sizing: border-box;
 }
 
-main .news_sec .container h3 {
+main .news_sec .container2 h3 {
   font-size: 15px;
   font-family: "Barlow";
   font-weight: 600;
@@ -241,7 +241,7 @@ h6 {
   line-height: 1;
 }
 
-main .news_sec .container dl {
+main .news_sec .container2 dl {
   text-align: left;
   display: flex;
   margin-bottom: 3px;
@@ -255,19 +255,19 @@ dd {
   padding: 0;
 }
 
-main .news_sec .container dl {
+main .news_sec .container2 dl {
   text-align: left;
   display: flex;
   margin-bottom: 3px;
 }
 
-main .news_sec .container dl dt {
+main .news_sec .container2 dl dt {
   margin-right: 12px;
   font-size: 14px;
   font-weight: 600;
 }
 
-main .news_sec .container dl dd {
+main .news_sec .container2 dl dd {
   font-size: 14px;
   font-weight: 600;
 }
@@ -291,7 +291,7 @@ tr {
   line-height: 1.5;
 }
 
-main .news_sec .container dl {
+main .news_sec .container2 dl {
   text-align: left;
   display: flex;
   margin-bottom: 3px;
@@ -332,6 +332,181 @@ main .cont_sec p span .link {
   margin-bottom: 1px;
   display: inline-block;
   transition: 0.3s;
+}
+
+/* 検索 */
+main .atte_sec {
+  background-color: #a0a0a0;
+  color: #fff;
+  padding: 48px 0 96px;
+  position: relative;
+}
+
+main .atte_sec .container2 {
+  max-width: 780px;
+}
+
+main .atte_sec .container2 h4 {
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+main .atte_sec .container2 ul {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 0 40px;
+}
+
+main .atte_sec .container2 ul li span {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 6px;
+  margin-left: 12px;
+  text-indent: -12px;
+}
+
+main .atte_sec .container2 ul li .mei02 {
+  width: 120px;
+  position: relative;
+  bottom: -22px;
+  right: -12px;
+}
+
+img[src$=".png"],
+img[src$=".jpg"] {
+  backface-visibility: hidden;
+}
+
+/* 一覧 */
+main .good_sec {
+  padding: 0 0 60px;
+}
+
+main .good_sec {
+  text-align: center;
+  padding: 0 0 36px;
+  background: url(/bg_mono.png) repeat center bottom / contain;
+  width: 100%;
+}
+
+main .good_sec h3 {
+  font-size: 15px;
+  font-family: "Barlow";
+  font-weight: 600;
+  background-color: #000;
+  box-sizing: border-box;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-bottom: 24px;
+  padding: 0 10px 3px;
+  display: block;
+  padding: 12px 12px 24px;
+  position: relative;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+main .good_sec h3::after {
+  content: "";
+  border-bottom: 3px solid #fff;
+  display: inline-block;
+  width: 50px;
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 10px;
+}
+
+main .good_sec .inner {
+  text-align: center;
+  max-width: 780px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+main .good_sec .inner .bg {
+  background-color: #fff;
+  padding: 18px;
+  margin-inline: auto;
+  width: 90%;
+}
+
+main .good_sec .inner h4 {
+  font-size: 32px;
+  padding: 50px 0 15px 0;
+  font-weight: bold;
+}
+
+main .good_sec .inner p.p1 {
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+  padding: 0 0 50px 0;
+  line-height: 1.8;
+}
+
+main .good_sec p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+main .good_sec .inner h5 {
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  height: 32px;
+  line-height: 31px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+main .good_sec .inner div.fig1 {
+  padding: 0 0 60px 0;
+}
+
+main .good_sec p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+main .good_sec::after {
+  content: "";
+  background: url(/obi_catch.png) repeat-x center bottom / contain;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* footer */

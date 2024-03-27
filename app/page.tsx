@@ -30,7 +30,7 @@ export default async function Page() {
         </p>
       </section>
       <section id="ancr_news" className="news_sec">
-        <div className="max-w-[899px] container c-anim-up move">
+        <div className="max-w-[899px] container2 c-anim-up move">
           <h3>NEWS</h3>
           <dl>
             <dt>2023.03.27</dt>
@@ -42,8 +42,60 @@ export default async function Page() {
           </dl>
         </div>
       </section>
-      {/* 料理一覧 */}
       {/* 料理検索 */}
+      <section className="atte_sec">
+        <div className="container2 c-anim-up move sm:px-5">
+          <h4>料理検索</h4>
+          <ul className="custom:custom-ul-display">
+            <li>
+              <span>
+                リクエストがあった料理一覧を表示するよ。※絶対に全部作ります。
+              </span>
+              <span>料理名のあいまい検索になります。</span>
+              <span>
+                検索条件を指定することで「作成済みの料理 or
+                未作成の料理」のいずれかを絞り込むことができます。
+              </span>
+              {/* <form onSubmit={() =>{alert("test")}}> */}
+              <div className="flex flex-col mt-8">
+                <input type="text" placeholder="料理名" />
+                <button>検索</button>
+              </div>
+              {/* </form> */}
+            </li>
+            <li>
+              <figure className="mei02 c-anim-up delay1 move custom:custom-ul-figure">
+                <img
+                  src="/img_naganomei02.png"
+                  alt="こんな永野芽郁、見たことない。"
+                />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      {/* 料理一覧 */}
+      <section className="good_sec c-anim-up move">
+        <h3>LIST</h3>
+        <div className="inner custom2:custom-goods-inner-div">
+          <div className="bg">
+            <h4 className="custom2:custom-goods-inner">全ての料理</h4>
+            <p className="p1">作成済み、未作成いずれも表示</p>
+
+            <h5>作成済み</h5>
+
+            <div className="fig1">
+              <img src="/fig1.jpg" alt="販売商品" />
+            </div>
+
+            <h5>未作成</h5>
+
+            <div className="fig1">
+              <img src="/fig1.jpg" alt="販売商品" />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* コンタクト */}
       <section className="cont_sec c-anim-up move">
         <h4>【西岡について】</h4>
