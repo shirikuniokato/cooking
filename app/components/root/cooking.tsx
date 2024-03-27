@@ -131,7 +131,7 @@ export default function Cooking(param: { cookList: COOKLIST }) {
                   name="name"
                   value={searchName}
                   onChange={handleInputChange}
-                  className="px-2 text-black h-10 focus:outline-none bg-white/70"
+                  className="px-2 text-black h-10 focus:outline-none bg-white/70 rounded-none"
                 />
 
                 <select

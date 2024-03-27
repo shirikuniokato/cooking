@@ -24,6 +24,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+select {
+  border-radius: 0;
+  /* その他のスタイリングを追加 */
+  border: 1px solid #ccc; /* 枠線を設定 */
+  padding: 5px 10px; /* パディングを設定 */
+}
+
 main {
   flex: 1 0 auto;
 }
