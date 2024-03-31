@@ -76,7 +76,7 @@ export default function Request() {
 
                 <input
                   type="text"
-                  placeholder="リンク(備考)"
+                  placeholder="リンク(任意)"
                   id="link"
                   name="link"
                   value={request.link}
