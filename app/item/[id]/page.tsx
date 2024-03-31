@@ -1,6 +1,11 @@
 import Link from "next/link";
+import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from "next/headers";
 import { config } from "@/app/lib/config";
+
+type Props = {
+  params: { id: number };
+};
 
 const formatYmd = (createDate: string): string => {
   const date = new Date(createDate);
@@ -18,11 +23,23 @@ async function getData(host: string, id: number) {
   return res.json();
 }
 
-export default async function Page({
-  params: { id },
-}: {
-  params: { id: number };
-}) {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  const host = headers().get("host");
+  const data = await getData(host!, id);
+
+  return {
+    title: `西岡 | 詳細 | ${data.name}`,
+    description: "西岡が料理を極めて永野芽郁と結婚するまでの道のり",
+  };
+}
+
+export default async function Page({ params: { id } }: Props) {
   const host = headers().get("host");
   const data = await getData(host!, id);
   return (
