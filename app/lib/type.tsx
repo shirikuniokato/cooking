@@ -7,3 +7,10 @@ export type COOK = {
   created_at: Date;
   updated_at: Date;
 };
+
+export type REQUEST_TYPE = {
+  name?: string;
+  link?: string;
+  memo?: string;
+  user_name?: string;
+};

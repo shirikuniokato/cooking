@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import { config } from "@/app/lib/config";
 import Link from "next/link";
 import Cooking from "./components/root/cooking";
+import Request from "./components/root/request";
 
 async function getData(host: string) {
   const res = await fetch(`${config.apiPrefix}${host}/api/search`);
@@ -35,6 +36,10 @@ export default async function Page() {
         <div className="max-w-[899px] container2 c-anim-up move">
           <h3>NEWS</h3>
           <dl>
+            <dt>2023.03.31</dt>
+            <dd>料理のリクエスト機能追加</dd>
+          </dl>
+          <dl>
             <dt>2023.03.27</dt>
             <dd>当サイト公開 && Slack連携開始！</dd>
           </dl>
@@ -44,6 +49,9 @@ export default async function Page() {
           </dl>
         </div>
       </section>
+
+      {/* 料理リクエスト */}
+      <Request />
 
       {/* 料理 */}
       <Cooking cookList={data} />
