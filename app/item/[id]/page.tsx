@@ -58,7 +58,7 @@ export default async function Page({ params: { id } }: Props) {
                   </p>
                   <p className="details">
                     ■参考サイト：
-                    {data.link ? (
+                    {data.link && isLink(data.link) ? (
                       <Link className="link" href={data.link}>
                         こちら
                       </Link>
@@ -89,3 +89,14 @@ export default async function Page({ params: { id } }: Props) {
     </>
   );
 }
+
+const isLink = (link: string): boolean => {
+  if (!link) return false;
+
+  try {
+    const url = new URL(link);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (_) {
+    return false;
+  }
+};
