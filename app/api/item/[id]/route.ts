@@ -31,7 +31,7 @@ export async function GET(
 
 const getCook = async (id: number): Promise<COOK | undefined> => {
   const { rows } =
-    await sql<COOK>`SELECT id, name, link, memo, is_cook, created_at, updated_at FROM cook WHERE id = ${id}`;
+    await sql<COOK>`SELECT id, name, link, memo, is_cook, user_name, created_at, updated_at FROM cook WHERE id = ${id}`;
 
   if (rows[0]) {
     return rows[0];

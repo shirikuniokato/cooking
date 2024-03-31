@@ -52,6 +52,10 @@ export default async function Page({
                   <p className="details">
                     ■メモ：{data.memo ? data.memo : "無し"}
                   </p>
+                  <p className="details">
+                    ■登録者：
+                    {data.user_name ? data.user_name : "不明"}
+                  </p>
                 </dd>
               </dl>
             </li>

@@ -4,6 +4,7 @@ export type COOK = {
   link: string;
   memo: string;
   is_cook: boolean;
+  user_name: string;
   created_at: Date;
   updated_at: Date;
 };
