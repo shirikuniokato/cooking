@@ -27,7 +27,7 @@ const create = async (body: REQUEST_TYPE): Promise<string> => {
   const { rows } =
     await sql<COOK>`INSERT INTO cook(name, link, memo, is_cook, user_name) VALUES (${body.name}, ${body.link}, ${body.memo}, false, ${body.user_name}) RETURNING id;`;
   if (rows[0]) {
-    return `https://cook.nishioka-app.com/item/${rows[0]["id"]}`;
+    return `/item/${rows[0]["id"]}`;
   } else {
     throw new Error("登録失敗");
   }
