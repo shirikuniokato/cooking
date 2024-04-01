@@ -3,6 +3,8 @@ import { sql } from "@vercel/postgres";
 import { notFound } from "next/navigation";
 import { COOK } from "@/app/lib/type";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   request: Request,
   { params }: { params: { id: number } }
