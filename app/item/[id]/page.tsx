@@ -13,7 +13,9 @@ const formatYmd = (createDate: string): string => {
 };
 
 async function getData(host: string, id: number) {
-  const res = await fetch(`${config.apiPrefix}${host}/api/item/${id}`);
+  const res = await fetch(`${config.apiPrefix}${host}/api/item/${id}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
