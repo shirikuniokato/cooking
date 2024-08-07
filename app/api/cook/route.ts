@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
 import { COOK, REQUEST_TYPE } from "@/app/lib/type";
 
+// POST
 export async function POST(request: Request) {
   const body = (await request.json()) as REQUEST_TYPE;
 
